@@ -1,0 +1,33 @@
+{
+  "name": "react_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fix": "tslint --fix './src/**/*.ts{,x}'",
+    "lint": "tslint --format stylish './src/**/*.ts{,x}'",
+    "test": "npm run clean && jest",
+    "bundle": "webpack && open ./index.html",
+    "clean": "rm -r ./dist && mkdir dist",
+    "build": "npm run clean && npm run lint && npm run pack",
+    "elem": "tsc -p ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^16.0.30",
+    "@types/react-dom": "^16.0.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.8",
+    "awesome-typescript-loader": "^3.4.1",
+    "jest": "^21.2.1",
+    "source-map-loader": "^0.2.3",
+    "ts-jest": "^21.2.4",
+    "tslint": "^5.8.0",
+    "tslint-config-airbnb": "^5.4.2",
+    "typescript": "^2.6.2"
+  }
+}
