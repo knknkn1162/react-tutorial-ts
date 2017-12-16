@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import App from './components/LoginControl';
+import App from './components/WarningBanner';
 
 
 ReactDOM.render(
