@@ -2,6 +2,9 @@
   "extends": "tslint-config-airbnb",
   "rules": {
     "max-line-length": [true, 120],
-    "object-literal-shorthand": false
+    "object-literal-shorthand": false,
+    "function-name": [true, {
+      "function-regex": "^[a-zA-Z][\w\d]+$"
+    }]
   }
 }
