@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Game from './Game';
+import FlavorForm from './FlavorForm';
 
 function app(): JSX.Element {
   return (
     <div>
-      <Game />
+      <FlavorForm />
     </div>
   );
 }
