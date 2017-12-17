@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Reservation from './Reservation';
+import Calcurator from './Calcurator';
 
 function app(): JSX.Element {
   return (
     <div>
-      <Reservation />
+      <Calcurator />
     </div>
   );
 }
