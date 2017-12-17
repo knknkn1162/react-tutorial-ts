@@ -7,13 +7,13 @@ class NameForm extends React.Component<{}, {value: string}> {
 
   }
 
-  handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
+  handleChange = (e: React.FormEvent<HTMLTextAreaElement>): void => {
     this.setState(
       {value: e.currentTarget.value}
     );
   }
 
-  handleSubmit = (e: React.FormEvent<HTMLElement>) => {
+  handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     alert('A name was submitted: ' + this.state.value);
     e.preventDefault();
   }
@@ -23,7 +23,7 @@ class NameForm extends React.Component<{}, {value: string}> {
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <textarea value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
