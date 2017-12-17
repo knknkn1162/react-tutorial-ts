@@ -1,10 +1,10 @@
 import * as React from 'react';
-import WelcomeDialog from './WelcomeDialog';
+import SignUpDialog from './SignUpDialog';
 
 function app(): JSX.Element {
   return (
     <div>
-      <WelcomeDialog />
+      <SignUpDialog />
     </div>
   );
 }
