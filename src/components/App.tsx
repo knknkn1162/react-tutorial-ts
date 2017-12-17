@@ -1,10 +1,10 @@
 import * as React from 'react';
-import ListOfThings from './ListOfThings';
+import CustomTextInput from './CustomTextInput';
 
 function app(): JSX.Element {
   return (
     <div>
-      <ListOfThings />
+      <CustomTextInput />
     </div>
   );
 }
