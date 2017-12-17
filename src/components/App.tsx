@@ -1,10 +1,10 @@
 import * as React from 'react';
-import FlavorForm from './FlavorForm';
+import Reservation from './Reservation';
 
 function app(): JSX.Element {
   return (
     <div>
-      <FlavorForm />
+      <Reservation />
     </div>
   );
 }

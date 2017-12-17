@@ -19,12 +19,19 @@ class Reservation extends React.Component<{}, ReservationState> {
 
   handleInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
     const target = e.currentTarget;
-    const value = target.type !== 'checkbox' ? undefined : target.value;
-    const name = target.name;
 
-    this.setState({
-      name: value,
-    });
+    switch(target.type) {
+      case 'checkbox':
+        this.setState({
+          isGoing: target.checked
+        })
+        break;
+      case 'number':
+        this.setState({
+          numberOfGuests: parseInt(target.value)
+        })
+        break;
+    }
   }
 
   render() {
@@ -51,3 +58,5 @@ class Reservation extends React.Component<{}, ReservationState> {
     );
   }
 }
+
+export default Reservation;
