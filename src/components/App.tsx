@@ -1,11 +1,12 @@
 import * as React from 'react';
-import Welcome from './Welcome';
+import WelcomeDialog from './WelcomeDialog';
 
 function app(): JSX.Element {
   return (
     <div>
-      <Welcome>Hello children</Welcome>
+      <WelcomeDialog />
     </div>
   );
 }
+
 export default app;
