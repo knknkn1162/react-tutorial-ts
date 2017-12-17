@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import App from './components/WarningBanner';
-
+import App from './components/NameForm';
 
 ReactDOM.render(
     <App />,
