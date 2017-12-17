@@ -1,10 +1,10 @@
 import * as React from 'react';
-import CustomTextInput from './CustomTextInput';
+import CounterButton from './CounterButton';
 
 function app(): JSX.Element {
   return (
     <div>
-      <CustomTextInput />
+      <CounterButton color="blue"/>
     </div>
   );
 }
