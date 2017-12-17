@@ -59,9 +59,6 @@ class TemperatureInput extends React.Component<TemperatureInputProps, {temperatu
           value={temperature}
           onChange={this.handleChange} />
 
-        <BoilingVerdict
-          celsius={parseFloat(temperature)} />
-
       </fieldset>
     );
   }
@@ -95,6 +92,7 @@ class Calculator extends React.Component<{}, CalculatorState> {
     });
   }
 
+  // render when either celsius or fahrenheit change
   render() {
     const scale = this.state.scale;
     const temperature = this.state.temperature;
