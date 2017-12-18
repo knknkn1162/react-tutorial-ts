@@ -1,25 +1,23 @@
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { toggleTodo, ToggleTodoAction } from "../actions";
-import TodoList, { TodoListProps, TodoState } from "../components/TodoList";
-import todos from "../reducers/todos"
-
+import { connect, Dispatch } from 'react-redux';
+import { toggleTodo, TodoAction } from "../actions";
+import TodoList, { TodoListProps } from "../components/TodoList";
+import {Todo, Todos} from "../states/TodoState"
 
 interface StateFromProps {
-  todos: TodoState[]
+  todos: Todos,
 }
 
 interface DispatchFromProps {
-  onTodoClick: (id: number) => void
+  onTodoClick: (id: number) => void,
 }
 
-function mapStateToProps(state: TodoListProps): StateFromProps {
+function mapStateToProps(state: Todos): StateFromProps {
   return {
-    todos: state.todos,
+    todos: state,
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<ToggleTodoAction>): DispatchFromProps {
+function mapDispatchToProps(dispatch: Dispatch<TodoAction>): DispatchFromProps {
   return {
     onTodoClick: (id: number) => {
       dispatch(toggleTodo(id))
@@ -27,9 +25,7 @@ function mapDispatchToProps(dispatch: Dispatch<ToggleTodoAction>): DispatchFromP
   }
 }
 
-const VisibleTodoList = connect(
+export default connect<StateFromProps, DispatchFromProps, {}>(
   mapStateToProps,
   mapDispatchToProps
-)(TodoList)
-
-export default VisibleTodoList
+)(TodoList);
