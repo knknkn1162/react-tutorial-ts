@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
-import TodoList, {TodoState,generateTodos} from './TodoList';
+import TodoList from './TodoList';
+import {Todo as TodoState, generateTodos } from '../states/TodoState';
 
 import * as Adapter from "enzyme-adapter-react-16";
 

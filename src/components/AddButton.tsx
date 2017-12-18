@@ -12,19 +12,22 @@ class AddButton extends React.Component<AddButtonProps, {input: string}> {
       input: "",
     }
   }
-  onFormSubmit = (): void => {
+  onFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     if(!this.state.input.trim()) {
       return
     }
+    
     this.props.onSubmit(this.state.input);
     this.setState({
-      input: ""
-    });
+      input: "",
+    })
+    // if not, call @@INIT/redux
+    e.preventDefault();
   }
 
-  onInputChange = (): void => {
+  onInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
     this.setState({
-      input: this.state.input,
+      input: e.currentTarget.value,
     })
   }
 

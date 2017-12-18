@@ -8,12 +8,8 @@ enzyme.configure({ adapter: new Adapter() });
 
 it("renders input", () => {
   let res: string;
-  const onDummy = (s: string) => {res=s;return;};
+  const onDummy = (s: string) => {return;};
   const wrapper = enzyme.shallow(<AddButton onSubmit={onDummy}/>);
-  wrapper.setState({input: "hoge"})
 
-  wrapper.find("form").simulate("submit");
-
-  expect(res).toEqual("hoge");
-  expect(wrapper.state().input).toEqual("");
+  expect(wrapper.find("button").text()).toEqual("Add Todo");
 });

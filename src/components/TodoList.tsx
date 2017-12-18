@@ -1,32 +1,10 @@
 import * as React from "react";
 import Todo from "./Todo";
+import * as State from "../states/TodoState"
 
-export interface TodoState {
-  id: number;
-  completed: boolean;
-  text: string;
-}
-
-let id: number = 0;
-
-function generateTodo(text: string, id: number): TodoState {
-  return {
-    id: id,
-    completed: false,
-    text: text,
-  }
-}
-
-export function generateTodos(text: string[]): TodoState[] {
-  return text.map(t => {
-    let res = generateTodo(t, id);
-    id++;
-    return res;
-  })
-}
 
 export interface TodoListProps {
-  todos: TodoState[];
+  todos: State.Todos;
   onTodoClick: (id: number) => void;
 }
 
