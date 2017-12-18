@@ -25,7 +25,7 @@ export function generateTodos(text: string[]): TodoState[] {
   })
 }
 
-interface TodoListProps {
+export interface TodoListProps {
   todos: TodoState[];
   onTodoClick: (id: number) => void;
 }

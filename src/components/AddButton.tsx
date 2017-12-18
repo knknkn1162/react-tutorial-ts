@@ -1,7 +1,7 @@
 import * as React from "react";
 
 
-interface AddButtonProps {
+export interface AddButtonProps {
   onSubmit: (s: string) => void;
 }
 

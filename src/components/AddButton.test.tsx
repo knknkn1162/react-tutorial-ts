@@ -11,6 +11,7 @@ it("renders input", () => {
   const onDummy = (s: string) => {res=s;return;};
   const wrapper = enzyme.shallow(<AddButton onSubmit={onDummy}/>);
   wrapper.setState({input: "hoge"})
+
   wrapper.find("form").simulate("submit");
 
   expect(res).toEqual("hoge");
