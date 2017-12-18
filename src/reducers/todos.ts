@@ -1,18 +1,19 @@
-import { TodoState } from "../components/TodoList";
-import { TodoAction, AddTodoAction } from "../actions";
+import { Todos } from "../states/TodoState";
+import { TodoActionType, AddTodoAction, TodoAction } from "../actions";
 
-function todos(state: TodoState[], action: AddTodoAction): TodoState[] {
- switch(action.type) {
-   case TodoAction.ADD_TODO:
+function todos(state: Todos, action: TodoAction): Todos {
+  alert(action.type);
+  switch(action.type) {
+   case TodoActionType.ADD_TODO:
     return [
       ...state,
       {
         id: action.id,
         text: action.text,
-        completed: false
+        completed: false,
       }
     ];
-  case TodoAction.ADD_TODO:
+  case TodoActionType.TOGGLE_TODO:
     return state.map(todo => 
       (todo.id == action.id) ? {...todo, completed: !todo.completed} : todo
     );
