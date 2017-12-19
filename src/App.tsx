@@ -1,14 +1,14 @@
 import * as React from 'react';
 import TodoList from "./containers/TodoList";
-import AddButton from "./containers/AddButton";
-//      <AddButton />
+import AddTodoButton from "./containers/AddTodoButton";
+
 function app(): JSX.Element {
   return (
     <div>
-      <AddButton />
+      <AddTodoButton />
       <TodoList />
     </div>
-  );
+  )
 }
 
 export default app;

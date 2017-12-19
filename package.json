@@ -24,7 +24,6 @@
     "enzyme-adapter-react-16": "^1.1.0",
     "immutable": "^3.8.2",
     "react": "^16.2.0",
-    "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2"

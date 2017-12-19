@@ -3,10 +3,11 @@ import * as ReactDOM from 'react-dom';
 import { Provider, Store } from 'react-redux'
 import { createStore } from 'redux';
 import todos from './reducers/todos';
+import { Todos } from './states/TodoState'
 
 import App from './App';
 
-let store = createStore(todos, []);
+let store: Store<Todos> = createStore(todos, []);
 
 // @@redux/INIT
 ReactDOM.render(
