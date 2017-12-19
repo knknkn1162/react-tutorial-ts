@@ -1,5 +1,6 @@
 import { connect, Dispatch } from 'react-redux';
-import { toggleTodo, TodoAction } from "../actions";
+import { TodoAction } from "../actions";
+import { toggleTodo } from '../actions/toggle';
 import TodoList, { TodoListProps } from "../components/TodoList";
 import { Todos } from "../states/TodoState";
 import { TodoList as TodoListState, getVisibleTodos } from "../states/Filter";

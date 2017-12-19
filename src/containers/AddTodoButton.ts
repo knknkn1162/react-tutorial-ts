@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
-import { addTodo, TodoAction } from '../actions';
+import { TodoAction } from '../actions';
+import { addTodo } from '../actions/add';
 import AddButton, { AddTodoButtonProps } from '../components/AddTodoButton';
 import { Todo, Todos } from '../states/TodoState';
 
