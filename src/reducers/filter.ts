@@ -1,10 +1,11 @@
-import { VisibleTodoType } from '../states/Filter';
-import { TodoActionType, TodoAction } from '../actions';
+import { VisibleType } from '../states/Filter';
+import { TodoAction } from '../actions';
+import { SET_FILTER } from '../actions/visible';
 
 
-function filter(state: VisibleTodoType, action: TodoAction) {
+function filter(state: VisibleType = VisibleType.SHOW_ALL, action: TodoAction): VisibleType {
   switch(action.type) {
-    case TodoActionType.SET_FILTER:
+    case SET_FILTER:
       return action.filter;
     default:
       return state;

@@ -1,9 +1,11 @@
 import { Todos } from "../states/TodoState";
-import { TodoActionType, AddTodoAction, TodoAction } from "../actions";
+import { TodoAction } from "../actions";
+import { ADD_TODO } from "../actions/add";
+import { TOGGLE_TODO } from "../actions/toggle";
 
-function todos(state: Todos, action: TodoAction): Todos {
+function todos(state: Todos = [], action: TodoAction): Todos {
   switch(action.type) {
-   case TodoActionType.ADD_TODO:
+   case ADD_TODO:
     return [
       ...state,
       {
@@ -12,7 +14,7 @@ function todos(state: Todos, action: TodoAction): Todos {
         completed: false,
       }
     ];
-  case TodoActionType.TOGGLE_TODO:
+  case TOGGLE_TODO:
     return state.map(todo => 
       (todo.id == action.id) ? {...todo, completed: !todo.completed} : todo
     );

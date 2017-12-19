@@ -1,6 +1,6 @@
 import { Todos } from './TodoState'
 
-export enum VisibleTodoType {
+export enum VisibleType {
   SHOW_COMPLETED = 'SHOW_COMPLICATED',
   SHOW_ACTIVE = 'SHOW_ACTIVE',
   SHOW_ALL = 'SHOW_ALL',
@@ -8,17 +8,17 @@ export enum VisibleTodoType {
 
 export interface TodoList {
   todos: Todos,
-  filter: VisibleTodoType,
+  filter: VisibleType,
 }
 
 export function getVisibleTodos(todoList: TodoList): Todos {
   const {todos, filter} = todoList;
   switch (filter) {
-    case VisibleTodoType.SHOW_COMPLETED:
+    case VisibleType.SHOW_COMPLETED:
       return todos.filter(t => t.completed)
-    case VisibleTodoType.SHOW_ALL:
+    case VisibleType.SHOW_ALL:
       return todos.filter(t => !t.completed)
-    case VisibleTodoType.SHOW_COMPLETED:
+    case VisibleType.SHOW_COMPLETED:
     default:
       return todos
   }
