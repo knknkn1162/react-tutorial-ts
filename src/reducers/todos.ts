@@ -3,6 +3,7 @@ import { TodoAction } from "../actions";
 import { ADD_TODO } from "../actions/add";
 import { TOGGLE_TODO } from "../actions/toggle";
 
+// note that state argument should be initialized due to 
 function todos(state: Todos = [], action: TodoAction): Todos {
   switch(action.type) {
    case ADD_TODO:
