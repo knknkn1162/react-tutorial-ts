@@ -1,50 +1,10 @@
-import { VisibleTodoType } from '../states/Filter';
+import { SetFilterAction, SET_FILTER } from './visible';
+import { AddTodoAction, ADD_TODO } from './add';
+import { ToggleTodoAction, TOGGLE_TODO } from './toggle';
+import { VisibleType } from '../states/Filter';
 
 let nextTodoId = 0;
 
-export enum TodoActionType {
-  ADD_TODO = 'ADD_TODO',
-  TOGGLE_TODO = 'TOGGLE_TODO',
-  SET_FILTER = 'SET_FILTER',
-}
-
-
-export interface AddTodoAction {
-  type: TodoActionType.ADD_TODO;
-  id: number;
-  text: string;
-}
-
-export interface ToggleTodoAction {
-  type: TodoActionType.TOGGLE_TODO;
-  id: number;
-}
-
-export interface SetFilterAction {
-  type: TodoActionType.SET_FILTER;
-  filter: VisibleTodoType;
-}
-
+export type TodoActionType = SET_FILTER | TOGGLE_TODO | ADD_TODO; 
 export type TodoAction = AddTodoAction | ToggleTodoAction | SetFilterAction;
 
-export function addTodo(text: string): AddTodoAction {
-  return {
-    type: TodoActionType.ADD_TODO,
-    id: nextTodoId++,
-    text: text,
-  }
-}
-
-export function toggleTodo(id: number): ToggleTodoAction {
-  return {
-    type: TodoActionType.TOGGLE_TODO,
-    id: id,
-  }
-}
-
-export function setFilter(filter: VisibleTodoType): SetFilterAction {
-  return {
-    type: TodoActionType.SET_FILTER,
-    filter: filter,
-  }
-}
