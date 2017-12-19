@@ -1,18 +1,20 @@
 import * as React from "react";
 
 
-export interface AddButtonProps {
+export interface AddTodoButtonProps {
   onSubmit: (s: string) => void;
 }
 
-class AddButton extends React.Component<AddButtonProps, {input: string}> {
-  constructor(props: AddButtonProps) {
+class AddButton extends React.Component<AddTodoButtonProps, {input: string}> {
+  constructor(props: AddTodoButtonProps) {
     super(props)
     this.state = {
       input: "",
     }
   }
   onFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    // if not, call @@INIT/redux
+    e.preventDefault();
     if(!this.state.input.trim()) {
       return
     }
@@ -21,8 +23,6 @@ class AddButton extends React.Component<AddButtonProps, {input: string}> {
     this.setState({
       input: "",
     })
-    // if not, call @@INIT/redux
-    e.preventDefault();
   }
 
   onInputChange = (e: React.FormEvent<HTMLInputElement>): void => {

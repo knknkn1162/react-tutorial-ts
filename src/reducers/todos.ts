@@ -2,7 +2,6 @@ import { Todos } from "../states/TodoState";
 import { TodoActionType, AddTodoAction, TodoAction } from "../actions";
 
 function todos(state: Todos, action: TodoAction): Todos {
-  alert(action.type);
   switch(action.type) {
    case TodoActionType.ADD_TODO:
     return [
