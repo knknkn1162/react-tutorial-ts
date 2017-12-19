@@ -1,9 +1,13 @@
+import { VisibleTodoType } from '../states/Filter';
+
 let nextTodoId = 0;
 
 export enum TodoActionType {
   ADD_TODO = 'ADD_TODO',
   TOGGLE_TODO = 'TOGGLE_TODO',
+  SET_FILTER = 'SET_FILTER',
 }
+
 
 export interface AddTodoAction {
   type: TodoActionType.ADD_TODO;
@@ -16,7 +20,12 @@ export interface ToggleTodoAction {
   id: number;
 }
 
-export type TodoAction = AddTodoAction | ToggleTodoAction;
+export interface SetFilterAction {
+  type: TodoActionType.SET_FILTER;
+  filter: VisibleTodoType;
+}
+
+export type TodoAction = AddTodoAction | ToggleTodoAction | SetFilterAction;
 
 export function addTodo(text: string): AddTodoAction {
   return {
@@ -33,3 +42,9 @@ export function toggleTodo(id: number): ToggleTodoAction {
   }
 }
 
+export function setFilter(filter: VisibleTodoType): SetFilterAction {
+  return {
+    type: TodoActionType.SET_FILTER,
+    filter: filter,
+  }
+}
