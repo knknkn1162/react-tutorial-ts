@@ -4,8 +4,8 @@ import filter from './filter';
 import { TodoList } from '../states/Filter';
 
 const todoApp = combineReducers<TodoList>({
-  todos,
-  filter,
+  todos: todos,
+  filter: filter,
 });
 
 // const todoApp: (state: TodoList, action: AnyAction) => TodoList
