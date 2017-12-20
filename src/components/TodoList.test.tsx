@@ -1,23 +1,47 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import TodoList from './TodoList';
-import {Todo as TodoState, generateTodos } from '../states/TodoState';
+import * as sinon from 'sinon';
+import {Todo as TodoState } from '../states/TodoState';
 
 import * as Adapter from "enzyme-adapter-react-16";
 
 enzyme.configure({ adapter: new Adapter() });
 
-it("renders text when completed=true", () => {
-  const onDummy = (id: number) => {return;};
-  const todos: Array<TodoState> = generateTodos(["hello", "goodbye"]);
+describe('renders', () => {
+    it("renders ul", () => {
+      const todos = [
+        {id: 0, completed: false, text: "hello"},
+        {id: 1, completed: false, text: "goodbye"},
+      ];
+      const wrapper = enzyme.shallow(
+        <TodoList 
+          todos={todos} 
+          onTodoClick={(n: number)=>{return;}}
+        />
+      );
 
-  expect(todos).toEqual([
-    {id: 0, completed: false, text: "hello"},
-    {id: 1, completed: false, text: "goodbye"},
-  ])
+      expect(wrapper.find("ul").at(0).find("Todo")).toHaveLength(2);
+      expect(wrapper.find("Todo").at(0).prop("text")).toEqual("hello");
+    });
+});
 
-  const hello = enzyme.shallow(<TodoList todos={todos} onTodoClick={onDummy}/>);
+describe('event', () => {
+  it("test onClick", () => {
+    const onTodoClick = sinon.spy();
+    const todos = [
+      {id: 0, completed: true, text: "hello"},
+      {id: 1, completed: false, text: "goodbye"},
+    ];
+    const wrapper = enzyme.shallow(
+      <TodoList
+        todos={todos} 
+        onTodoClick={onTodoClick}
+      />
+    );
+    wrapper.find("Todo").map(w => w.simulate('click'));
 
-  expect(hello.find("Todo")).toHaveLength(2);
-  expect(hello.find("Todo").at(0).html()).toEqual('<li style="text-decoration:none">hello</li>');
+    expect(onTodoClick.callCount).toEqual(2);
+    expect(onTodoClick.args).toEqual([[0], [1]]);
+  });
 });
