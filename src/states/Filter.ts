@@ -23,3 +23,9 @@ export function getVisibleTodos(todoList: TodoList): Todos {
       return todos
   }
 }
+
+export const filterTitles = {
+  [VisibleType.SHOW_ALL]: 'All',
+  [VisibleType.SHOW_ACTIVE]: 'Active',
+  [VisibleType.SHOW_COMPLETED]: 'Completed'
+};
