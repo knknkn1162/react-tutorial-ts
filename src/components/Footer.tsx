@@ -16,9 +16,10 @@ class Footer extends React.Component<FooterProps, {}> {
       VisibleType.SHOW_COMPLETED
     ];
     return (
-      <p>
-      Show:
-      {" "}
+      <div>
+        <p>Show:
+        {" "}
+        </p>
         <ul>
           {
             VisibleTypes.map(filter => 
@@ -32,9 +33,9 @@ class Footer extends React.Component<FooterProps, {}> {
             )
           }
         </ul>
-      </p>
+      </div>
     );
   }
 }
 
-export default Footer
+export default Footer;
