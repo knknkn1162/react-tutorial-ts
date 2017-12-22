@@ -36,10 +36,8 @@ describe('renders', () => {
           onTodoClick={(n: number)=>{return;}}
         />
       );
-      expect(wrapper.find("ul").html()).toEqual('<ul><li style="text-decoration: none;">hello</li><li style="text-decoration: none;">goodbye</li></ul>');
       
       expect(wrapper.find("ul").find("li")).toHaveLength(2);
-
       expect(wrapper.find("ul").find("li").map(w => w.text())).toEqual(["hello", "goodbye"]);
 
     });
