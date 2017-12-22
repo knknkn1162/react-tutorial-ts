@@ -24,6 +24,25 @@ describe('renders', () => {
       expect(wrapper.find("ul").at(0).find("Todo")).toHaveLength(2);
       expect(wrapper.find("Todo").at(0).prop("text")).toEqual("hello");
     });
+
+    it("renders mount", () => {
+      const todos = [
+        {id: 0, completed: false, text: "hello"},
+        {id: 1, completed: false, text: "goodbye"},
+      ];
+      const wrapper = enzyme.mount(
+        <TodoList 
+          todos={todos} 
+          onTodoClick={(n: number)=>{return;}}
+        />
+      );
+      expect(wrapper.find("ul").html()).toEqual('<ul><li style="text-decoration: none;">hello</li><li style="text-decoration: none;">goodbye</li></ul>');
+      
+      expect(wrapper.find("ul").find("li")).toHaveLength(2);
+
+      expect(wrapper.find("ul").find("li").map(w => w.text())).toEqual(["hello", "goodbye"]);
+
+    });
 });
 
 describe('event', () => {
